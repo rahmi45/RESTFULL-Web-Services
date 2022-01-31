@@ -11,6 +11,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -44,6 +45,11 @@ public class MainController {
 	
 	@GetMapping(value= "/getStudent/{id}")
 	public Student getStudentById(@PathVariable("id") int id) { 
+		 return liste.get(id - 1);
+	}
+	
+	@GetMapping(value= "/getStudentId")
+	public Student getStudentId(@RequestParam int id) { 
 		 return liste.get(id - 1);
 	}
 }
